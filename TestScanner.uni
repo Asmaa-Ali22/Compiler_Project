@@ -3,11 +3,14 @@ import universe
 mission exploreGalaxy(Mercury trips) {
     Mercury score = 0;
 
+    **that is  single line code 
+
     ***
     This is a multi-line comment
     It explains the logic below
     Checking if the mission is successful or failed
     ***
+   
 
     explore (Mercury i = 0; i < trips; i++) {
         transmit "Journey " + i + " initiated.";
