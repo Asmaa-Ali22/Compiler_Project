@@ -73,7 +73,7 @@ enum TokenType {
 
 
 struct Token {
-    TokenType type;
+    TokenType type= UNKNOWN;
     string lexeme;
 };
 
@@ -175,13 +175,12 @@ public:
                 }
                 else {
                     std::string comment;
-                    if (peek != '\n') {
-                        comment += peek;
-                        std::getline(f, comment, '\n');
-                    }
+                    f.putback(peek);
+                    std::getline(f, comment);
                     t.type = COMMENT;
                     t.lexeme = "**" + comment;
                 }
+
             }
 
 
@@ -199,8 +198,6 @@ public:
 
             return t;
         }
-
-
 
         else if (ch == '/') {
             f.get(ch);
