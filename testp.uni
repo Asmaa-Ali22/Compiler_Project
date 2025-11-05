@@ -1,0 +1,35 @@
+import universe
+
+mission exploreGalaxy(Mercury trips) {
+    Mercury score = 0;
+
+    **that is  single line code 
+
+    ***
+    This is a multi-line comment
+    It explains the logic below
+    Checking if the mission is successful or failed
+    ***
+   
+
+    explore (Mercury i = 0; i < trips; i = i + 1) {
+        transmit "Journey " + i + " initiated.";
+
+        control ((i % 2 == 0) && (i < 10) || (i == 3)) {
+            transmit "Mission successful";
+            score = score + 2;
+        }
+        alternative {
+            transmit "Mission failed";
+        }
+    }
+
+    land score;
+}
+
+mission liftoff() {
+    Jupiter commander = "Nova";
+    Mercury finalScore = exploreGalaxy(5);
+
+    transmit commander + " completed the mission with a score of " + finalScore;
+}
